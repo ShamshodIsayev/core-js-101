@@ -7,7 +7,6 @@
  *                                                                                           *
  ******************************************************************************************* */
 
-
 /**
  * Returns an area of a rectangle given by width and height.
  *
@@ -19,10 +18,9 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(width, height) {
+  return width * height;
 }
-
 
 /**
  * Returns a circumference of circle given by radius.
@@ -35,8 +33,8 @@ function getRectangleArea(/* width, height */) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCircleCircumference(radius) {
+  return 3.14 * 2 * +radius;
 }
 
 /**
@@ -51,8 +49,8 @@ function getCircleCircumference(/* radius */) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  return (value1 + value2) / 2;
 }
 
 /**
@@ -90,7 +88,6 @@ function getLinearEquationRoot(/* a, b */) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Returns an angle (in radians) between two vectors given by xi and yi,
  * coordinates in Cartesian plane.
@@ -125,10 +122,10 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  const stringed = String(value);
+  return Number(stringed[stringed.length - 1]);
 }
-
 
 /**
  * Returns a number by given string representation.
@@ -141,8 +138,9 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  const result = +value;
+  return result;
 }
 
 /**
@@ -162,7 +160,6 @@ function getParallelepipedDiagonal(/* a, b, c */) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Returns the number rounded to specified power of 10.
  *
@@ -180,8 +177,20 @@ function getParallelepipedDiagonal(/* a, b, c */) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  const arr = String(num).split('');
+  for (let i = 0; i < pow; i += 1) {
+    arr.pop();
+  }
+  for (let i = 0; i < pow; i += 1) {
+    arr.push('0');
+  }
+  let acc = '';
+  arr.map((el) => {
+    acc += el;
+    return acc;
+  });
+  return +acc;
 }
 
 /**
@@ -201,8 +210,20 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  if (n <= 3) return n > 1;
+
+  if (n % 2 === 0 || n % 3 === 0) return false;
+
+  let count = 5;
+
+  while (count ** 2 <= n) {
+    if (n % count === 0 || n % (count + 2) === 0) return false;
+
+    count += 6;
+  }
+
+  return true;
 }
 
 /**
@@ -220,8 +241,11 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  if (typeof Number(value) === 'number') {
+    return Number(value);
+  }
+  return def;
 }
 
 module.exports = {
