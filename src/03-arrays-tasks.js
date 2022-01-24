@@ -42,6 +42,7 @@ function generateOdds(len) {
   for (let i = 1; i < len2; i += 2) {
     arr.push(i);
   }
+  arr.map((el) => el);
   return arr;
 }
 
@@ -189,7 +190,8 @@ function getHead(arr, n) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'b', 'c', 'd' ]
  */
 function getTail(arr, n) {
-  return arr.splice(n);
+  const res = arr.splice(n);
+  return res;
 }
 
 /**
@@ -442,18 +444,31 @@ function findAllOccurrences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 function toStringList(arr) {
-  if (arr.includes('')) {
-    const i = arr.indexOf('');
-    arr.splice(i, 1);
-  }
+  const copyArr = arr;
+  // let newEl;
+  // let indexOfEl;
+
+  // copyArr.map((el, index) => {
+  //   if (!el.length && typeof el === 'string') {
+  //     newEl = ',';
+  //     indexOfEl = index;
+  //   }
+  //   return el;
+  // });
+
+  // if (copyArr[indexOfEl] === '') {
+  //   copyArr.splice(indexOfEl, 1, newEl);
+  // }
+
   let result = '';
-  arr.map((el, index) => {
-    if (index === arr.length - 1) result += el;
+  copyArr.map((el, index) => {
+    if (index === copyArr.length - 1) result += el;
     else {
       result += `${el},`;
     }
     return result;
   }, '');
+  return result;
 }
 
 /**

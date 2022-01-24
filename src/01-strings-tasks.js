@@ -51,7 +51,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  return `Hello, ${firstName} ${lastName}`;
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -73,6 +73,7 @@ function extractNameFromTemplate(value) {
       break;
     }
   }
+  res = res.slice(0, res.length - 1);
 
   return res;
 }
@@ -277,11 +278,11 @@ function encodeToRot13(str) {
  */
 
 function isString(value) {
+  if (typeof value === 'undefined' || value === null) return false;
+  if (!value.length) return false;
+  if (typeof value === 'string') return true;
+  if (typeof value === 'object') return true;
   if (typeof value !== 'string') return false;
-  if (typeof value === 'string') {
-    return true;
-  }
-  if (typeof value === 'object' && value.length) return true;
   return false;
 }
 /**

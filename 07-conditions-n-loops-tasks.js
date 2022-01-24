@@ -26,15 +26,12 @@
  *  21 => 'Fizz'
  *
  */
-
 function getFizzBuzz(num) {
   if (num % 3 === 0 && num % 5 === 0) {
     return 'FizzBuzz';
-  }
-  if (num % 3 === 0) {
+  } else if (num % 3 === 0) {
     return 'Fizz';
-  }
-  if (num % 5 === 0) {
+  } else if (num % 5 === 0) {
     return 'Buzz';
   }
   return num;
@@ -153,7 +150,7 @@ function doRectanglesOverlap(/* rect1, rect2 */) {
  *
  * @param {object} circle
  * @param {object} point
- * @return {boolean}
+ * @return {bool}
  *
  * @example:
  *   { center: { x:0, y:0 }, radius:10 },  { x:0, y:0 }     => true
@@ -190,13 +187,13 @@ function findFirstSingleChar(str) {
     const a = arr.splice(i, 1);
 
     // arr.includes(a[0]) ? '' : (result += a);
-    if (!arr.includes(a[0])) {
-      result += a;
-      arr.push(a[0]);
-    }
+  if(!arr.includes(a[0])){
+    result += a
+    arr.push(a[0]);
   }
   return result.length ? result[0] : null;
 }
+
 /**
  * Returns the string representation of math interval,
  * specified by two points and include / exclude flags.
@@ -220,18 +217,18 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-  const resArr = [a, b];
-  resArr.sort();
+  const arr = [a, b];
+  arr.sort();
   const firstBracket = !isStartIncluded ? '{' : '[';
   const lastBracket = !isEndIncluded ? '}' : ']';
-  const output = `${firstBracket}${resArr[0]}, ${resArr[1]}${lastBracket}`;
-  return output;
+  const result = `${firstBracket}${arr[0]}, ${arr[1]}${lastBracket}`;
+  return result;
 }
 
 /**
  * Reverse the specified string (put all chars in reverse order)
  *
- * @param {string} string
+ * @param {string} str
  * @return {string}
  *
  * @example:
@@ -240,16 +237,16 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(string) {
-  let resul = '';
-  string
+function reverseString(str) {
+  let result = '';
+  str
     .split('')
     .reverse()
     .map((el) => {
-      resul += el;
-      return resul;
+      result += el;
+      return result;
     });
-  return resul;
+  return result;
 }
 
 /**
@@ -265,15 +262,15 @@ function reverseString(string) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-  let numResult = '';
+  let result = '';
   String(num)
     .split('')
     .reverse()
     .map((el) => {
-      numResult += el;
-      return numResult;
+      result += el;
+      return result;
     });
-  return +numResult;
+  return +result;
 }
 
 /**
@@ -314,15 +311,15 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(n) {
-  let outputNum = 0;
-  for (let i = 0; i < String(n).length; i += 1) {
-    outputNum += +String(n)[i];
+function getDigitalRoot(num) {
+  let result = 0;
+  for (let i = 0; i < String(num).length; i += 1) {
+    result += +String(num)[i];
   }
-  if (String(outputNum).length > 1) {
-    outputNum = +String(outputNum)[0] + +String(outputNum)[1];
+  if (String(result).length > 1) {
+    result = +String(result)[0] + +String(result)[1];
   }
-  return outputNum;
+  return result;
 }
 
 /**
@@ -347,7 +344,49 @@ function getDigitalRoot(n) {
  *   '{[(<{[]}>)]}' = true
  */
 function isBracketsBalanced(/* str */) {
+  // const result = [];
+  // const arr = str.split('');
+  // let res = true;
+
+  // for (let i = 0; i < arr.length + 5; i += 1) {
+  //   let a;
+  //   if (arr[0] === '[' || arr[0] === '{' || arr[0] === '<') {
+  //     a = arr.shift();
+  //   }
+  //   if (a === '[') {
+  //     if (arr.indexOf(']') !== -1 && arr.indexOf(']') !== -1) {
+  //       let index = arr.indexOf(']');
+  //       arr.splice(index, 1);
+  //     } else {
+  //       res = false;
+  //     }
+  //   } else if (a === '{') {
+  //     if (arr.indexOf('}') !== -1 && arr.indexOf('}') !== -1) {
+  //       let index = arr.indexOf('}');
+  //       arr.splice(index, 1);
+  //     } else {
+  //       res = false;
+  //       console.log(a);
+  //     }
+  //   } else if (a === '<') {
+  //     if (arr.indexOf('>') !== -1 && arr.indexOf('>') !== -1) {
+  //       let index = arr.indexOf('>');
+  //       arr.splice(index, 1);
+  //     } else {
+  //       res = false;
+  //     }
+  //   } else {
+  //     console.log('else');
+  //   }
+  // }
+  // console.log(arr);
+  // if (!arr.length) {
+  //   return true;
+  // } else {
+  //   return false; //////////////////////////////////////////////////////////////////////////////////////
+  // }
   throw new Error('Not implemented');
+  
 }
 
 /**
@@ -494,5 +533,5 @@ module.exports = {
   toNaryString,
   getCommonDirectoryPath,
   getMatrixProduct,
-  evaluateTicTacToePosition,
+  evaluateTicTacToePosition
 };
